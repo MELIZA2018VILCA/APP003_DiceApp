@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.deepPurple,
       appBar: AppBar(
-        title: Text("DiceApp"),
+        title: const Text("DiceApp"),
         centerTitle: true,
         backgroundColor: Colors.deepPurple,
         elevation: 10.0,
@@ -43,20 +43,21 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(
               child: TextButton(
-                onPressed: () {
-                  DadoIzquierdo = Random().nextInt(6) + 1; // 0 - 5
-
-                  setState(() {});
-                },
-                child: Image.asset(
-                  "assets/images/dice$DadoIzquierdo.png",
-                ),
+              onPressed: (){
+                DadoIzquierdo=Random().nextInt(6)+1;
+                DadoDerecho=Random().nextInt(6)+1;
+                setState(() {});
+              },
+              child: Image.asset(
+                "assets/images/dice$DadoIzquierdo.png",
+              ),
               ),
               flex: 1,
-            ),
-            Expanded(
+              ),
+             Expanded(
               child: TextButton(
                 onPressed: () {
+                  DadoIzquierdo = Random().nextInt(6) + 1; // 0 - 5
                   DadoDerecho = Random().nextInt(6) + 1; // 0 - 5;
                   setState(() {});
                 },
@@ -65,9 +66,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               flex: 1,
-            ),
+            ), 
           ],
         ),
+        
       ),
     );
   }
